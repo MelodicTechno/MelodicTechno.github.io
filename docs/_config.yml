@@ -28,7 +28,7 @@ twitter_username: melodictec6045
 github_username:  MelodicTechno
 
 # Build settings
-theme: minima
+theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
