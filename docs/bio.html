@@ -2,12 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/page.css">
     <title>About Me</title>
+    <style>
+        .text {
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
     <h1>About MelodicTechno</h1>
-    <div>
-        *Emphasized* text.
+    <p id="datetime"></p>
+    <div class="page text">
+        <p style="width: 50%; text-align: left">
+            I'm melodictechno, this is my nickname. I call myself that because I used to enjoy Melodic Techno, a genre
+            of EDM, to be exactly, electric musics. Now I don't like Techno that much, but changing nickname is troublesome.
+        </p>
+
+        <p>
+            I came from China, 
+        </p>
     </div>
 </body>
 </html>
+
+<script>
+    // Get current date and time
+    var now = "2024/8/5";
+    var datetime = now.toLocaleString();
+
+    // Insert date and time into HTML
+    document.getElementById("datetime").innerHTML = datetime;
+</script>

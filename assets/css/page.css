@@ -22,8 +22,45 @@
 }
 
 body {
-    background-image: url('./assets/img/120147109_p0.jpg');
+    background-image: url('../img/120147109_p0.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: darken;
+}
+
+.page {
+    /*vertical-align: middle;*/
+    display: table;
+    margin: auto;
+}
+
+.topnav {
+    /*vertical-align: middle;*/
+    display: table;
+    margin: auto;
+}
+
+h1 {
+    /*vertical-align: middle;*/
+    display: table;
+    margin: auto;
+}
+
+title {
+    /*vertical-align: middle;*/
+    display: table;
+    margin: auto;
+}
+
+list {
+    /*vertical-align: middle;*/
+    display: table;
+    margin: auto;
+}
+
+p {
+    /*vertical-align: central;*/
+    display: table;
+    margin: auto;
+    text-align: left;
 }
