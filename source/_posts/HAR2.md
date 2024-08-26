@@ -2,6 +2,8 @@
 title: Modality for HAR
 date: 2024-08-26 21:34:23
 tags: ["deep learning", "action recognition"]
+categories: [论文笔记]
+mathjax: true
 ---
 
 > 论文：Human Action Recognition From Various Data Modalities: A Review
@@ -86,9 +88,7 @@ Li：提出Video-LSTM，将卷积和基于动作的注意力合并入soft-attent
 
 Tran: 3D CNN模型，即C3D，在端到端网络中从视频里学习时空特征，主要用于片段层面的学习
 
-Diba: 使用3D卷积核和pooling kernals来拓展DenseNet，并设计了一个时序三维卷积网络(T3D)，在这个网络中，时间过渡层可以对多种时序卷积核的深度进行
-建模，T3D可以稠密且有效地捕捉多种长度视频的表观和时序信息。之后他们又将一些网络块嵌入一些结构，比如ResNext和ResNet，从而实现在时空特征方面对3维卷积
-核的内部通道之间的联系的建模。
+Diba: 使用3D卷积核和pooling kernals来拓展DenseNet，并设计了一个时序三维卷积网络(T3D)，在这个网络中，时间过渡层可以对多种时序卷积核的深度进行 建模，T3D可以稠密且有效地捕捉多种长度视频的表观和时序信息。之后他们又将一些网络块嵌入一些结构，比如ResNext和ResNet，从而实现在时空特征方面对3维卷积 核的内部通道之间的联系的建模。
 
 Varol: 提出一种长期时序卷积(LTC)网络，以减少空间分辨率为代价延长三维卷积网络表达时间信息的极限，完成对长时间的时序结构的建模。
 
