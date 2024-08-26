@@ -1,0 +1,8 @@
+- links_category: n
+  has_thumbnail: false
+  list:
+    - name: n
+      link: n
+      description: n
+      avatar: ''
+      thumbnail: ''
