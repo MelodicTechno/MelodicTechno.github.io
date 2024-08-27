@@ -110,4 +110,38 @@ Li: 双流时空可变形3d cnn，外加注意力，可以捕获长范围的时�
 
 ## 对3D CNNs问题的解决
 
+Zhou: 从概率的角度分析3D CNN的时空融合
+
+Yang: 提出通用的网络，Temporal Pyramid Network(TPN)，对动作中速度的变化进行建模
+
+Kim: 提出Random Mean Scaling (RMS)，一种正则化方法，已处理过拟合的问题
+
+Varol: 用合成的动作训练3D CNN，让训练集的视点更多元
+
+Piergiovanni与Ryoo: 几何卷积层，学习3D几何变化和投影
+
+> 蒸馏法可以改善3D CNN对动作的表示
+
+Stroud: Distilled 3D Network (D3D)，由学生网络和导师网络组成，学生网络用RGB视频训练，导师网络用光流序列训练，得到的信息蒸馏给学生网络
+
+Crasto: 用光流训练的导师网络的知识迁移到用RGB视频训练的学生网络，减少特征图和双流的均方误差
+
+> 下面是一些减少计算量的方法
+
+Shou: 对抗网络，通过减少压缩后的视频中噪音和粗粒的动作来估计动作信息
+
+Wang: 高效的correlation operator，更好地学习3D特征图的动作信息
+
+Fayyaz: 动态改变时序特征的分变率，提出Similarity Guided Sampling (SGS)模块，让3D CNNs能够选择信息量最大和最有特点的时序特征，动态地选择计算资源，
+
+## 因式分解三维卷积
+
+Sun: Factorized spatio-temporal CNN ($F_{st}$ CN)，因式分解三维卷积和二维时序卷积，之后是一维时序卷积
+
+Qiu: 在空间上将三维卷积分解成二维卷积，之后是时间域上的一维卷积，能够经济有效地模拟三维卷积
+
+Xie: 利用了三维和二维卷积核的组合，探索了几种I3D变体的表现，引入了一种时间可分离卷积和空间特征门来增强动作检测
+
+Yang: 高效的单向三维卷积，实现对传统卷积的近似
+
 
