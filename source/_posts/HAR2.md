@@ -11,6 +11,8 @@ mathjax: true
 ---
 *这篇综述侧重讲解了动作检测中不同的建模方式。*
 
+*本来只是记笔记，然后变成翻译，最后变成机器翻译，从笔记变成大段落摘抄(~~复制粘贴~~)了。说实话我也不知道综述要怎么记笔记，综述不就是笔记吗*
+
 ## 不同的建模方法
 
 提到了10种建模方式，优缺点已列出
@@ -260,4 +262,80 @@ Raman提出了一种四流架构，其中每个流由一个CNN和一个 LSTM 组
 Mehta等人提出了一个对抗性框架，该框架由双流3D卷积自动编码器作为生成器和两个3D CNN作为联合鉴别器组成。生成器网络以热数据和光流为输入，联合鉴别器试图将真实的热数据和光流与重构的目标数据区分开来
 
 ## 点云模态(Point Cloud Modality)
+
+Wang等人将原始点云序列转换为常规体素集。然后将时间秩池应用于所有体素集，将3D动作信息编码为单个体素集。最后，体素表示被抽象并通过 PointNet++ 模型进行 3D HAR。然而，将点云转换为体素表示会导致量化误差和低效的处理性能
+
+Liu等人提出了MeteorNet，它直接堆叠多帧点云，并通过聚合来自时空相邻点的信息来计算局部特征
+
+与通过将一维时间维度附加到 3D 点来学习时空信息的MeteorNet不同，PSTNet解开空间和时间，以减少点的空间不规则性对时间建模的影响
+
+Fan: 引入了点云4D卷积，加上一个Transformer来捕获整个点云视频中的全局外观和运动信息。
+
+在Self-supervised 4D Spatio-temporal Feature Learning via Order Prediction of Sequential Point Cloud Clips的工作中，引入了一个自监督学习框架，通过预测序列中4D剪辑的时间顺序，从点云序列中学习4D时空信息。使用4D CNN模型和LSTM来预测时间顺序。最后，在现有HAR数据集上微调4D CNN+LSTM网络以评估其性能。
+
+Wang等人在"Anchor-Based Spatial-Temporal Attention Convolutional Networks for Dynamic 3D Point Cloud Sequences"中提出了一种基于锚定的时空注意力卷积模型来捕捉三维点云序列的动力学。然而，这些方法不能充分捕捉点云序列中的长期关系，为了解决这个问题，Min 等人在[An Efficient PointLSTM for Point Clouds Based Gesture Recognition](https://readpaper.com/paper/3034442691)中引入了一个名为 PointLSTM 的 LSTM 单元的修改版本来更新相邻点对的状态信息以执行HAR。
+
+[Spatial-Temporal Transformer for 3D Point Cloud Sequences](https://readpaper.com/paper/3206710363)中提出了一种用于处理点云序列的点时空转换器(PST2)。引入了一种基于自注意力的模块，称为时空自注意力 (STSA)，用于捕获时空上下文信息，可用于 3D 点云中动作识别。
+
+## 事件流模态(Event Stream Modality)
+
+Innocenti等人在[Temporal Binary Representation for Event-Based Action Recognition](https://readpaper.com/paper/3163388905)中首先通过检查$\Delta t$期间每个像素的事件的存在与否，从原始事件数据中构建一系列二进制表示。然后将这些中间二进制表示堆叠在一起，通过二进制转换为十进制转换形成单帧。从整个事件流中提取的此类帧序列最终被馈送到 CNN+LSTM 用于 HAR。
+
+Huang等人在[Event-based Action Recognition Using Timestamp Image Encoding Network](https://readpaper.com/paper/3088250895)利用时间戳图像编码将事件数据序列转换为基于帧的表示，然后将其馈送到CNN进行HAR。更准确地说，生成的时间戳图像中每个像素的值编码了发生在时间窗口内的事件量。
+
+Ghosh等人以无监督的方式学习一组3D时空卷积滤波器，生成原始事件数据的结构化矩阵形式，然后将其馈送到3D CNN进行HAR。George等人利用Spiking神经网络(SNNs)进行基于事件流的HAR。[Space-Time Event Clouds for Gesture Recognition: From RGB Cameras to Event Cameras](https://readpaper.com/paper/2922107638)中的工作将事件流视为三维点云，然后将其馈送到PointNet进行手势识别。Bi等人将事件表示为图，并使用 GCN 网络直接从原始事件数据中学习端到端特征学习。
+
+## 音频模态(Audio Modality)
+
+> 近年来，仅用音频信号中实现HAR的深度学习方法只有几种
+
+Liang 和 Thomaz在[Audio-Based Activities of Daily Living (ADL) Recognition with Large-Scale Acoustic Embeddings from Online Videos](https://readpaper.com/paper/3123300333)中使用预训练的 VGGish 模型作为特征提取器，然后是深度分类网络来执行HAR。
+
+## 加速度模态(Acceleration Modality)
+
+Wang等人在[Human Action Recognition on Cellphone Using Compositional Bidir-LSTM-CNN Networks](https://readpaper.com/paper/2945893412)中提出了一个由CNN和Bi-LSTM网络组成的框架，从原始加速度数据中提取空间和时间特征。与上述工作不同，Lu等人在[Robust Single Accelerometer-Based Activity Recognition Using Modified Recurrence Plot](https://readpaper.com/paper/2946273500)中利用改进的递归图(RP)将原始三轴加速度数据转换为彩色图像，然后将其馈送到ResNet进行HAR。此外，一些基于加速的方法(如[Accelerometer-Based Human Fall Detection Using Convolutional Neural Networks](https://readpaper.com/paper/2928318647))专注于跌倒检测任务。
+
+## 雷达模态(Radar Modality)
+
+> 雷达是一种主动传感技术，传输电磁波并从目标接收返回的波。连续波雷达，如多普勒和频率调制连续波(FMCW)雷达，最常被选为HAR。具体来说，多普勒雷达检测身体部位的径向速度，频率根据距离变化，称为多普勒频移。雷达微运动产生的微多普勒特征包含目标的运动和结构信息，因此可用于HAR。至于FMCW雷达，它们也可以测量目标的距离。使用雷达获得的HAR谱图有一些优点，其中包括对光照和天气条件的变化、隐私保护和穿墙HAR的能力的鲁棒性。
+
+[Human Activity Classification With Radar: Optimization and Noise Robustness With Iterative Convolutional Neural Networks Followed With Random Forests](https://readpaper.com/paper/2893047521)中的工作直接将原始雷达距离数据作为输入。原始数据通过一个自相关函数，然后是一个 CNN 来提取与动作相关的特征。最后，使用随机森林分类器来预测动作类别。
+
+### 双流
+
+Hernanguliomez等人在[](https://readpaper.com/paper/3022764844)中设计了一种双流CNN，将表示目标结构特征的微多普勒和距离谱图作为输入。在[](https://readpaper.com/paper/3014532624)中，雷达的微多普勒谱图和回波被馈送到双流CNN模型进行HAR。
+
+### RNN
+
+通过将微多普勒谱图解释为时间序列而不是图像，最近提出了几种基于 RNN 的架构。例如，[Yang](https://readpaper.com/paper/2969761328)和[Wang](https://readpaper.com/paper/2914258566)分别使用LSTM模型和堆叠的RNN模型来预测动作类。
+
+## WIFI
+
+> 信道状态信息(CSI)是从原始 WiFi 信号计算的细粒度信息，由执行动作的人反射的 WiFi 信号通常在 WiFi 接收器上产生 CSI 的独特变化
+
+Wang等人[](https://readpaper.com/paper/2558891025)提出了一种深度稀疏自动编码器来从CSI流中学习鉴别特征。在 [](https://readpaper.com/paper/2941772619) 的工作中，提出了基于 WiFi 的样本级 HAR 模型，称为 Temporal Unet，由几个时间卷积、反卷积和最大池化层组成。该方法将每个系列中的每个WiFi失真样本分类为细粒度HAR的一个动作。LSTM网络也被用于HAR使用CSI信号Huang等人[](https://readpaper.com/paper/3016370068)通过噪声和冗余去除模块传递原始CSI测量值，然后使用剪辑重建模块将处理后的CSI信号分割成多个片段。然后将这些剪辑馈送到多流 CNN+LSTM 模型以执行 HAR。在[](https://readpaper.com/paper/3006408325)的工作中，首先从预先训练的CNN的全连接层中提取CSI信号的空间特征。然后将这些特征馈送到 Bi-LSTM 以捕获 HAR 的时间信息。Chen等人[](https://readpaper.com/paper/2899145720)通过基于注意力的BiLSTM直接传递原始CSI信号来预测动作类别。与上述工作不同，Gao等人[](https://readpaper.com/paper/2743415265)将CSI信号转换为无线电图像，然后将其馈送到深度稀疏自动编码器来学习HAR的鉴别特征。
+
+## 多模态
+
+> 在现实生活中，人类经常以多模态认知的方式感知环境。同样，多模态机器学习是一种建模方法，旨在处理和关联来自多种模式的感觉信息。通过聚合各种数据模式的优点和功能，多模态机器学习通常可以提供更健壮和准确的HAR。多模态学习方法主要有两种类型，即融合和共同学习。融合是指整合来自两个或多个模态的信息进行训练和推理，而共同学习是指不同数据模态之间的知识转移。
+
+### 融合
+
+HAR中有两种广泛使用的多模态融合方案，即分数融合和特征融合。通常，分数融合集成了基于不同模态的单独做出的决策(例如，通过加权平均或通过学习分数融合模型)来产生最终的分类结果。另一方面，特征融合一般将不同模态的特征结合起来，产生对HAR通常非常有鉴别性和强大的聚合特征。
+
+### 视觉模态的融合
+
+#### Fusion of RGB and Depth Modalities
+
+在[](https://readpaper.com/paper/2547204915)中，引入了一个四流深度CNN，从三个不同的视点)和RGB数据(即运动历史图像)的不同深度数据表示(即三个深度运动图)中提取特征。将这四个流的输出分数进行融合以执行动作分类。
+
+通过将深度和 RGB 模态视为单个实体，Wang 等人从空间对齐和时间同步的 RGB 和深度帧中提取场景流特征。利用双向秩池从场景流特征序列中生成两个动态图像。然后将动态图像馈送到两个不同的 CNN，最后融合它们的分类分数来执行 HAR。
+
+Wang等人[58]将RGB和深度数据表示为两对RGB和深度动态图像，然后通过协同训练的CNN (c-ConvNet)。c-ConvNet 由两个流组成，它们通过联合优化排名损失和 softmax 损失来利用特征进行动作分类。在[311]中，引入了一个由多流cnn和3D ConvLSTMs[349]组成的混合网络，从RGB和深度视频中提取特征。然后通过典型相关分析融合这些特征以执行动作分类。
+
+Wang等人[309]提出了一个生成框架来探索RGB和深度模态之间的特征分布。融合是通过构建一个跨模态发现矩阵来执行的，然后将其馈送到模态相关发现网络进行最终预测。Dhiman等人[310]设计了一个由运动流和形状时间动态(STD)流组成的双流网络，分别对RGB和深度视频的特征进行编码。特别地，运动流从 RGB 数据中获取动态图像作为输入并输出分类分数。STD 网络由 [9] 中的人体姿势模型作为其主干，然后是几个 LSTM 和一个 softmax 层。通过聚合这两个流的分数得到最终的分类分数。
+
+#### Fusion of RGB and Skeleton Modalities
+
+> RGB数据提供的外观信息和骨架序列提供的身体姿势和关节运动信息是互补的，对活动分析很有用。因此，一些工作研究了深度学习架构来融合HAR的RGB和骨架数据
 
