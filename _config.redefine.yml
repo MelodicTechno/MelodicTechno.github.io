@@ -429,7 +429,7 @@ plugins:
     audios:
       - name: 妄想感傷代償連盟 # audio name
         artist: DECO*27 / 初音ミク # audio artist
-        url: music/song1.flac # audio url
+        url: music/song1.mp3 # audio url
         cover: http://p1.music.126.net/S8Fw1AOhq45Obb_YyThviw==/18495984602893574.jpg?param=130y130 # audio cover url
         lrc: # audio cover lrc
       #      - name: # audio name
