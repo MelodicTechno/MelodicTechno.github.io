@@ -404,7 +404,7 @@ footer:
 # Docs: https://redefine-docs.ohevan.com/inject
 inject:
   # Whether to enable inject
-  enable: false
+  enable: true
   # Inject custom head html code
   head:
     -
@@ -424,13 +424,13 @@ plugins:
     enable: false # Whether to enable
   # Aplayer. See https://github.com/DIYgod/APlayer
   aplayer:
-    enable: false # Whether to enable
+    enable: true # Whether to enable
     type: fixed # fixed, mini
     audios:
-      - name: # audio name
-        artist: # audio artist
-        url: # audio url
-        cover: # audio cover url
+      - name: 妄想感傷代償連盟 # audio name
+        artist: DECO*27 / 初音ミク # audio artist
+        url: music/song1.flac # audio url
+        cover: http://p1.music.126.net/S8Fw1AOhq45Obb_YyThviw==/18495984602893574.jpg?param=130y130 # audio cover url
         lrc: # audio cover lrc
       #      - name: # audio name
       #        artist: # audio artist
