@@ -2,6 +2,7 @@
 title: 动作识别综述笔记
 date: 2024-08-26 21:26:51
 tags: ["deep learning", "action recognition"]
+categories: [论文笔记]
 mathjax: true
 ---
 
