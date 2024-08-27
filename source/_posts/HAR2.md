@@ -144,4 +144,68 @@ Xie: 利用了三维和二维卷积核的组合，探索了几种I3D变体的表
 
 Yang: 高效的单向三维卷积，实现对传统卷积的近似
 
+Lin: Temporal Shift Module (TSM)，沿着时间部分交换通道
 
+Sudhakaran: 轻量的Gate-Shift Module (GSM)，使用可学习的空间门块，完成对三维卷积的时空分解
+
+Wang: 双层Gate-Shift Module (GSM)，捕捉精细的局部和大范围的全局动作
+
+Wang: Action模块，利用多径激励分别在时空层面，通道层面和动作模式方面建模
+
+> 其他方法: Convolutional Gated Restricted Boltzmann Machines, Graph-based Modeling, Transformers, 4D CNNs
+
+## Skeleton Modality
+
+1. 编码关节
+2. 可以用动捕收集
+3. 在大多数场景不方便
+4. 一般用深度图或RGB获取骨架建模
+5. 简单有效多样健壮
+
+一些基于骨架建模的网络:
+![models](images/HAR2/model4ske.png)
+
+它们的表现:
+![benchmark](images/HAR2/benchmark1.png)
+
+## 基于RNN的方法
+
+Du: 端到端层次RNN，将骨架分为5个部分，分别输入多个双向RNN，输出一层层混合，在较高位面生成对动作的表示
+
+Differential RNN (dRNN)，通过量化帧之间显著运动引起的信息增益的变化来学习显著的时空信息
+
+Derivative of States (DoS)，在lstm单元里作为控制信息在内部单元流入流出的信号
+
+Zhu: lstm新的机制，实现co-occurrence mining，共现(co-occurrence)本质上表征了动作
+
+Sharoudy: Part-aware LSTM (P-LSTM)，引入在lstm里模拟身体各部分的关系的机制
+
+Liu: 在时间和空间上拓展RNN，利用基于树结构的骨架遍历方法，进一步利用空间信息，用trust gate处理噪声和闭塞；基于注意力的lstm，Global Context-Aware Attention LSTM (GCA-LSTM)，使用全局信息选择性地关注信息关节。模型包含两层lstm，第一层编码骨架序列，输出全局上下文记忆，第二层输出注意力，精细化全局上下文，最后softmax输出动作识别信息
+
+two-stream RNN建模时间动态和空间立体基阵
+
+Deep LSTM + 时空注意力，空间注意力子网络和时间注意力子网络共同在主要的lstm下工作，对骨架序列的多种动态进行建模
+
+Lee: Temporal Sliding LSTM (TS-LSTM) framework，由多个部分组成，包含短，中，长期TS-LSTM
+
+IndRNN: 解决梯度消失和梯度爆炸，比原本的lstm快
+
+## 基于CNN的方法
+
+Hou: 骨架光谱+关节轨迹图，将时空信息和骨架序列编码成色彩纹理图，使用CNN做动作识别
+
+Joint Distance Map (JDM)， 上述工作的延申，用骨架关节的距离对生成视角不变的色彩纹理图
+
+Ke: 将每个骨架序列转换成三个视频片段，输入预训练的CNN，产生微缩的表示，然后用多任务网络har
+
+Kim: Temporal CNN (TCN)，清晰提供可读的时空表示
+
+一种用层次的方法学习共现特征的端到端网络，在点的层面单独地学习关节的每个特征，利用这些特征作为卷积层的一个通道，学习层次的共现特征，使用双流网络融合动作特征
+
+Caetano: SkeleMotion，Tree Structure Reference Joints Image (TSRJI)，用来表示骨架序列。
+
+Skepxels，构建骨骼图的基本块，用来编码人体骨骼关节的位置和速度的时空信息，也可以用来捕捉在每一帧间关节极微小的动作之间的联系。Fourier Temporal Pyramids 可以利用这些联系
+
+## 解决问题
+
+Double-feature Double-motion Network (DD-Net): 加快计算

@@ -1,5 +1,5 @@
 ---
-title: 动作检测综述笔记
+title: 动作识别综述笔记
 date: 2024-08-26 21:26:51
 tags: ["deep learning", "action recognition"]
 mathjax: true
