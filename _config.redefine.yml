@@ -360,7 +360,7 @@ comment:
       clientSecret: b87441f3a09cd0836bb74666dce445c53f9f804a # GitHub Application Client Secret
       repo: blog-comment # GitHub repository
       owner: MelodicTechno # GitHub repository owner
-      proxy: # GitHub repository proxy
+      proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # GitHub repository proxy
     # Twikoo comment system. See https://twikoo.js.org/
     twikoo:
       version: 1.6.10 # Twikoo version, do not modify if you dont know what it is
