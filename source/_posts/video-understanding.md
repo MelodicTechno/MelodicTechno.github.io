@@ -6,11 +6,12 @@ categories: [课程笔记, 论文笔记]
 mathjax: true
 ---
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=853205150&bvid=BV1fL4y157yA&cid=576076417&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 时间线
 
 > - 综述: A Comprehensive Study of Deep Video Action Recognition
     - [link](https://arxiv.org/pdf/2012.06567)
-    - [pdf](../../../../pdf/video1/2012.06567v1.pdf)
 
 时间线如下：
 
@@ -34,5 +35,26 @@ mathjax: true
 
 ![fusion](images/video1/fuse.jpg)
 
+Single Frame是对单个图片进行操作，属于图片分类；后三个变体是视频。
 
+Late Fusion用两个权值共享的网络分别输入随机选取的两个帧，得到的特征最后合并，在全连接层输出；Early Fusion输入5个帧，在RGB通道上合起来，之后和Late Fusion一样。这样更能获取时间信息；Slow Fusion结合Late Fusion和Early Fusion，抽取10个帧输入，每4帧通过一个CNN，抽出特征，合并为2个片段，最后进行conv和fc。
+
+3种方法效果差异不大，但是都不好，效果不如手工特征。
+
+### 多分辨率
+
+![多分辨率](images/video1/fovea_context.jpg)
+
+两支网络中，fovea那条学习视频中央的内容，context那支学习整张图片的内容。两支网络是权值共享的，可以理解成一种双流，同时对中央的处理可以理解为一种注意力机制。
+
+有一些效果:
+![结果](images/video1/result1.jpg)
+
+## Two-Stream
+
+> - Simonyan, K., & Zisserman, A. (2014). Two-stream convolutional networks for action recognition in videos. Advances in neural information processing systems, 27.
+>   - [link](https://arxiv.org/pdf/1406.2199)
+
+模型如下:
+![双流](images/video1/two_stream.jpg)
 
