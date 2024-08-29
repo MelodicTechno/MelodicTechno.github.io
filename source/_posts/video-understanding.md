@@ -1,4 +1,5 @@
 ---
+cover: "../images/video1/timeline1.jpg"
 title: 视频理解
 date: 2024-08-28 22:19:24
 tags: [deep learning, action recognition]
