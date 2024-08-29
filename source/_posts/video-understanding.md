@@ -81,3 +81,69 @@ Late Fusion用两个权值共享的网络分别输入随机选取的两个帧，
 模型:
 ![模型](images/video1/beyond_model.jpg)
 
+LSTM的使用方法如下:
+![lstm](images/video1/lstm1.jpg)
+图中的C是卷积网络最后抽出来的特征，网络是权值共享的。特征具有时序信息，用5层LSTM处理之前的特征。橘黄色的方块是softmax
+
+不过LSTM的效果不是那么显著
+![结果](images/video1/result2.jpg)
+
+LSTM发挥效果需要输入有较大语义的改变。短视频没什么语义的变化，所以LSTM的效果不会很好。——up的观点。
+
+### Early Fusion
+
+> - Feichtenhofer, C., Pinz, A., & Zisserman, A. (2016). Convolutional two-stream network fusion for video action recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 1933-1941).
+>   - [link](https://arxiv.org/pdf/1604.06573)
+
+论文讲解了怎么融合时空信息
+
+这是**spatial fusion**:
+![spatial](images/video1/spatial_fusion.jpg)
+
+#### Spatial Fusion
+
+需要保证时间流与空间流的特征图在同样的位置上，产生的channel response要能联系起来
+
+**max fusion**:
+
+对于特征图$a$和$b$在同样位置上只取最大值
+
+$$
+y_{i,j,d}^{max} = max \lbrace x_{i,j,d}^a, x_{i,j,d}^b \rbrace
+$$
+
+**concatenation fusion**
+
+把两个特征图合并起来
+![](images/video1/concatenation_fusion.jpg)
+
+**Conv Fusion**
+
+先堆叠特征图，然后做卷积操作
+
+$$
+y^{conv} = f^{conv}(x^a,x^b)
+$$
+
+$$
+y^{conv} = y^{cat} * f + b
+$$
+
+**Sum Fusion**
+
+直接加起来
+
+**Bilinear fusion**
+
+对特征图outer product，加权平均。计算复杂度高。
+
+实际上**Conv fusion**表现就可以了
+
+#### 在哪里融合
+
+有两种选择:
+![](images/video1/where_to_fuse.jpg)
+
+左：conv4之后进行，由两个网络变成一个网络。
+
+右：表现更好。到conv5时，空间流的特征与时间流合并，产生时空的特征，但是空间流的特征继续用。在fc8再次合并。
