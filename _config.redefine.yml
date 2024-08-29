@@ -89,7 +89,7 @@ global:
     id:  # Google Analytics Measurement ID
     # SITE CUSTOMIZATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
   busuanzi_counter:
-    enable: true
+    enable: false
     site_pv: false
     site_uv: false
     post_uv: false
