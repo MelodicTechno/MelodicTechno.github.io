@@ -147,3 +147,20 @@ $$
 左：conv4之后进行，由两个网络变成一个网络。
 
 右：表现更好。到conv5时，空间流的特征与时间流合并，产生时空的特征，但是空间流的特征继续用。在fc8再次合并。
+
+#### Temporal Fusion
+
+![](images/video1/temporal_fusion.jpg)
+
+有两种方法，一种是3D pooling，一种是先做3D Conv，再做3D pooling
+
+解决上述问题后，作者提出模型的**总体框架**:
+![框架](images/video1/framework1.jpg)
+
+蓝色是空间流，绿色是时间流，对RGB和光流都是分别用两个网络抽特征，在conv做early fusion，然后先3D conv fusion，然后3d pooling，然后特征融合并pool得到fc，算出spatiotemporal损失函数;
+作者又把时间流单独拿出来，一次pooling，接fc，然后是时间上的损失函数。
+
+网络的两个结果做late fusion，加权平均
+
+结果:
+![](images/video1/result3.jpg)
