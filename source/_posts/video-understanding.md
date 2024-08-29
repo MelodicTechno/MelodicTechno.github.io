@@ -4,9 +4,12 @@ date: 2024-08-28 22:19:24
 tags: [deep learning, action recognition]
 categories: [课程笔记, 论文笔记]
 mathjax: true
+excerpt: 整理李沐账号的视频理解串讲
 ---
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=853205150&bvid=BV1fL4y157yA&cid=576076417&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+> 【视频理解论文串讲（上）【论文精读】】 https://www.bilibili.com/video/BV1fL4y157yA/?share_source=copy_web&vd_source=5c87dbd20cc0bcba1008ebe80abdab66
 
 ## 时间线
 
@@ -57,4 +60,23 @@ Late Fusion用两个权值共享的网络分别输入随机选取的两个帧，
 
 模型如下:
 ![双流](images/video1/two_stream.jpg)
+
+视频帧输入两个网络，一个处理RGB图像，处理空间信息，学习RGB到分类的映射；一个处理光流图像，学习时间信息，学习光流图到分类的映射。RGB是单张的，光流图像由10帧视频得到。
+
+网络使用Late Fusion，是AlexNet的变体。
+
+基于本网络，可以由如下改进:
+
+1. 使用Early Fusion
+2. 换更深的网络
+3. 使用LSTM
+4. 增长处理的视频的长度
+
+### LSTM
+
+> - Yue-Hei Ng, J., Hausknecht, M., Vijayanarasimhan, S., Vinyals, O., Monga, R., & Toderici, G. (2015). Beyond short snippets: Deep networks for video classification. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 4694-4702).
+>   - [link](https://arxiv.org/pdf/1503.08909)
+
+模型:
+![模型](images/video1/beyond_model.jpg)
 
