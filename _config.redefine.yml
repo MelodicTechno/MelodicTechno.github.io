@@ -359,7 +359,7 @@ comment:
       clientID: Ov23liKK0X1EnaYSrGVs # GitHub Application Client ID
       clientSecret: f7a716b9aced98378e7c12efeb21261668f0d426 # GitHub Application Client Secret
       repo: blog-comment # GitHub repository
-      owner: blog-comment # GitHub repository owner
+      owner: MelodicTechno # GitHub repository owner
       proxy: # GitHub repository proxy
     # Twikoo comment system. See https://twikoo.js.org/
     twikoo:
