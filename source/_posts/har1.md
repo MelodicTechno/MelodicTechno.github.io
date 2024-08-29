@@ -4,12 +4,13 @@ date: 2024-08-26 21:26:51
 tags: ["deep learning", "action recognition"]
 categories: [论文笔记]
 mathjax: true
+excerpt: "对动作识别的一篇综述的整理"
 ---
 
 > 论文：Going deeper into action recognition: A survey
+> 
 ## 方法
 
----
 ## 描述动作的方法
 
 ## Local representation based approaches

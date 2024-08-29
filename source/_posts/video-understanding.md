@@ -4,7 +4,7 @@ date: 2024-08-28 22:19:24
 tags: [deep learning, action recognition]
 categories: [课程笔记, 论文笔记]
 mathjax: true
-excerpt: 整理李沐账号的视频理解串讲
+excerpt: "整理李沐账号的视频理解串讲"
 ---
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=853205150&bvid=BV1fL4y157yA&cid=576076417&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>

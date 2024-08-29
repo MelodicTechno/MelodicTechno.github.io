@@ -4,6 +4,7 @@ date: 2024-08-26 21:34:23
 tags: ["deep learning", "action recognition"]
 categories: [论文笔记]
 mathjax: true
+excerpt: "对动作识别的一篇综述的奇怪整理"
 ---
 
 > 论文：Human Action Recognition From Various Data Modalities: A Review
