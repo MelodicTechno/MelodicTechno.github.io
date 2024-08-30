@@ -23,4 +23,14 @@ excerpt: "整理李沐账号的视频理解串讲"
 
 > 抽取光流很慢，也很占空间。光流存储带来的IO很多。所以很多人想把这种方法换掉，使用3D CNN，希望能直接学视频。但实际上3D网络越做越大，结果也没解决性能问题。实际上光流还是好特征。
 
+## 3D CNN
 
+### C3D
+
+> - Tran, Du, et al. "Learning spatiotemporal features with 3d convolutional networks." Proceedings of the IEEE international conference on computer vision. 2015.
+>   - [link](https://arxiv.org/pdf/1412.0767)
+
+**主要工作**: 提出简单且有效的学习视频的时空特征的方法。
+
+结果：
+![result](images/video2/result1.jpg)
