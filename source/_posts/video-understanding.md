@@ -190,3 +190,35 @@ $$
 
 效果:
 ![](images/video1/result4.jpg)
+
+## 发展历程
+
+```mermaid
+---
+title: 时间线
+config:
+  look: handDrawn
+  theme: neutral
+---
+  flowchart LR;
+      stip[STIP];
+      dt/idt[DT/IDT];
+      lstm[LSTM];
+      idtfv[IDT+FV];
+      deep[DeepVideo];
+      twostream[Two Stream];
+      tdd[TDD];
+      fusion[Fusion];
+      tsn[TSN];
+      dvdf[DVDF];
+      tle[TLE]
+      
+      stip --> dt/idt --> idtfv;
+      dt/idt --> lstm;
+      deep --> twostream --> tsn --> dvdf;
+      twostream --> tdd;
+      twostream --> lstm;
+      twostream --> fusion;
+      tsn --> tle;
+      
+```
