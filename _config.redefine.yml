@@ -432,7 +432,7 @@ plugins:
     audios:
       - name: 妄想感傷代償連盟 # audio name
         artist: DECO*27 / 初音ミク # audio artist
-        url: music/song1.mp3 # audio url
+        url: https://melodictechno.github.io/blog-songs/songs/song1.mp3 # audio url
         cover: http://p1.music.126.net/S8Fw1AOhq45Obb_YyThviw==/18495984602893574.jpg?param=130y130 # audio cover url
         lrc: # audio cover lrc
       #      - name: # audio name
@@ -443,22 +443,22 @@ plugins:
       # .... you can add more audios here
       - name: 空の箱 # audio name
         artist: トゲナシトゲアリ # audio artist
-        url: music/song3.mp3 # audio url
+        url: https://melodictechno.github.io/blog-songs/songs/song3.mp3 # audio url
         cover: http://p1.music.126.net/WZCpLIj7c9hxL8CHSthviA==/109951169472322801.jpg?param=130y130 # audio cover url
         lrc: ''
       - name: 誰にもなれない私だから # audio name
         artist: トゲナシトゲアリ # audio artist
-        url: music/song4.mp3 # audio url
+        url: https://melodictechno.github.io/blog-songs/songs/song4.mp3 # audio url
         cover: http://p1.music.126.net/WZCpLIj7c9hxL8CHSthviA==/109951169472322801.jpg?param=130y130 # audio cover url
         lrc: ''
       - name: 声なき魚 # audio name
         artist: トゲナシトゲアリ # audio artist
-        url: music/song2.mp3 # audio url
+        url: https://melodictechno.github.io/blog-songs/songs/song2.mp3 # audio url
         cover: http://p1.music.126.net/WZCpLIj7c9hxL8CHSthviA==/109951169472322801.jpg?param=130y130 # audio cover url
         lrc: ''
       - name: 雑踏、僕らの街 # audio name
         artist: トゲナシトゲアリ # audio artist
-        url: music/song5.mp3 # audio url
+        url: https://melodictechno.github.io/blog-songs/songs/song5.mp3 # audio url
         cover: http://p1.music.126.net/WZCpLIj7c9hxL8CHSthviA==/109951169472322801.jpg?param=130y130 # audio cover url
         lrc:
   # Mermaid JS. Requires hexo-filter-mermaid-diagrams (npm i hexo-filter-mermaid-diagrams). See https://mermaid.js.org/

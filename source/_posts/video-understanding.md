@@ -164,3 +164,29 @@ $$
 
 结果:
 ![](images/video1/result3.jpg)
+
+### 增长时间
+
+> - Wang, Limin, et al. "Temporal segment networks: Towards good practices for deep action recognition." European conference on computer vision. Springer, Cham, 2016.
+>   - [link](https://arxiv.org/pdf/1608.00859)
+
+![tsn](images/video1/tsn.jpg)
+
+视频被分为多段，分别输入双流，得到的logits进行segmental consensus(融合)，得到的空间上和时间上的共识做late fusion得到预测
+
+#### 论文中的技巧
+
+**Cross Modality Pre-training**
+
+可以用ImageNet预训练的模型训练光流图。这么做需要调整通道数量。RGB:3通道，光流: 10通道。在网络第一层对预训练的参数取平均，3通道变1通道，复制20遍变成20个通道
+
+**Regularization Techniques**
+
+使用**partial BN**，第一层BN学，剩下的冻住。
+
+**Data Augmentation**
+
+两种方法——corner cropping与scale-jittering。corner cropping是裁剪图像边角；scale-jittering是改变图片的长宽比。图片先缩放成$256 \times 340$，然后在{256, 224, 192, 168}之间抽两个作为长宽比。
+
+效果:
+![](images/video1/result4.jpg)
