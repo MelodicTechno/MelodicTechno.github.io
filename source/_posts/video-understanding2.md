@@ -97,3 +97,16 @@ SENet -> STCNet
 non-local block:
 ![non-local](images/video2/non_local_block.jpg)
 
+其实是自注意力操作。注意还有残差连接。注意力不多记录。
+
+![result](images/video2/result5.jpg)
+
+使用dot product做自注意力效果最好。
+
+作者试了加在2或3号resnet后，发现在234上效果好，在5上不好。加上10个non-local block效果最好。时间空间上做自注意力都很重要。
+
+![result](images/video2/result6.jpg)
+
+**贡献**
+
+把注意力操作引入视频理解，把空间上的自注意力操作变成时间和空间上的自注意力操作。
