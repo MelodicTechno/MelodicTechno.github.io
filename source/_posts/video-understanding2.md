@@ -34,3 +34,66 @@ excerpt: "整理李沐账号的视频理解串讲"
 
 结果：
 ![result](images/video2/result1.jpg)
+
+模型的结构：
+![model](images/video2/model1.jpg)
+
+总共有11层，卷积核均为 $3*3*3$ 。这个网络是3D的VGG。
+输入大小: $16 \times 112 \time 112$，视频帧，大小不重要
+Conv2a: $16 \times 56 \times 56$
+Conv3a: $8 \times 28 \times 28$
+Conv4a: $4 \times 14 \times 14$
+Conv4a: $2 \times 7 \times 7$
+fc6: $1 \times 4096$
+
+可以从fc6抽特征给SVM，做分类，效果更快更好。fc6抽的特征叫C3D特征
+
+结果:
+![result](images/video2/result2.jpg)
+
+效果挺好，比2D好
+
+![result](images/video2/result3.jpg)
+
+上面两个效果不好，不如之前的手工特征，也不如双流。整体上效果还是不好。文章的抽特征好，提供了python的实现，可以调接口。
+
+### I3D
+
+> - Carreira, Joao, and Andrew Zisserman. "Quo vadis, action recognition? a new model and the kinetics dataset." proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2017.
+>   - [link](https://arxiv.org/pdf/1705.07750)
+
+模型:
+
+![result](images/video2/model2.jpg)
+
+i即膨胀。预训练时使用2d数据，通过膨胀将2d转为3d的数据。i2d与i3d结构不变，卷积核变。不用再设计网络，只要扩充成3d，还能用之前用2d训练的模型参数
+
+结果:
+![result](images/video2/result4.jpg)
+
+意义：
+
+1. 分别用了RGB和光流，效果很好
+2. 简单方法提供表现
+3. 证明2D网络迁移到3D网络的有效性
+
+从此不用双流网络改用3D网络，数据集由UCF 101变成了K 400
+
+ResNet -> ResNet3D
+ResNext -> MFNet
+SENet -> STCNet
+
+### Non-local
+
+> - Wang, Xiaolong, et al. "Non-local neural networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2018.
+>   - [link](https://arxiv.org/pdf/1711.07971) 
+
+---
+
+> 3D网络大概已经定型，需要改进：时序上怎么建模？lstm可用，注意力很好
+
+卷积和递归都是在局部上操作，作者提出non-local算子，是一个可以建模长距离信息的模块。
+
+non-local block:
+![non-local](images/video2/non_local_block.jpg)
+
