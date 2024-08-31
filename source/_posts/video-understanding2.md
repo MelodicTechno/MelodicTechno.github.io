@@ -110,3 +110,94 @@ non-local block:
 **贡献**
 
 把注意力操作引入视频理解，把空间上的自注意力操作变成时间和空间上的自注意力操作。
+
+### R(2+1)D
+
+> - Tran, Du, et al. "A closer look at spatiotemporal convolutions for action recognition." Proceedings of the IEEE conference on Computer Vision and Pattern Recognition. 2018.
+>   - [link](https://arxiv.org/pdf/1711.11248)
+
+时空的卷积要怎么做？
+
+把3D卷积拆成空间上的3D和时间上的1D效果更好。
+
+**实验**
+
+![exp](images/video2/exp.jpg)
+
+**结果**
+
+![result](images/video2/result7.jpg)
+
+**拆分**
+
+![chaifen](images/video2/chaifen.jpg)
+
+空间上 $d \times d$卷积，时间不操作，空间上做 $M_i$ 的特征投射，变化维度。然后做 $t \times 1 \times 1$的时序卷积
+
+**$M_i$的公式**
+
+$$
+M_i = \lfloor \frac{td^2N_{i-1}N_i}{d^2N_{i-1}+tN_i} \rfloor
+$$
+
+**好处**
+
+模型的非线性强，学习能力更强一些，
+
+![result](images/video2/result8.jpg)
+
+证明模型更容易训练
+
+**结果**
+
+![](images/video2/result9.jpg)
+
+### Slow Fast
+
+> - Feichtenhofer, Christoph, et al. "Slowfast networks for video recognition." Proceedings of the IEEE/CVF international conference on computer vision. 2019.
+>   - [link](https://arxiv.org/pdf/1812.03982)
+
+单纯的3D网络，灵感来自人体视网膜的p细胞与m细胞，p细胞处理静止图像多，m细胞处理运动信息多。网络有一支是slow，一支是fast。在视频中以低采样率采样的是慢分支，在视频中稀疏地抽取帧，模型是I3D；快分支以高帧率采样，网络小一些。慢分支用小输入，大网络；快分支用大输入，小网络。分支之间用later connection结合起来，信息可以互相交互。达到速度与精度的结合。
+
+**模型**
+
+![model](images/video2/model3.jpg)
+
+在时序上没进行下采样，希望保持这些帧，更好地学习这些信息。
+
+**结果**
+
+![result](images/video2/result10.jpg)
+
+## Video transformer
+
+### Timesformer
+
+> - Bertasius, Gedas, Heng Wang, and Lorenzo Torresani. "Is space-time attention all you need for video understanding?." ICML. Vol. 2. No. 3. 2021.
+>   - [link](https://arxiv.org/pdf/2102.05095)
+
+**5种结构**
+
+![](images/video2/model4.jpg)
+
+第2个是把三个维度一起做注意力，gpu内存装不下。3: 现在时间上注意力，然后在空间上注意力。4: 现在局部注意力，然后在全局算。5: 分别延3个轴做自注意力。
+
+**可视化**
+
+![](images/video2/keshihua.jpg)
+
+**消融实验**
+
+![](images/video2/result11.jpg)
+
+**显存的问题**
+
+![](images/video2/xiancun.jpg)
+
+**结果**
+
+![](images/video2/result12.jpg)
+
+**总结**
+
+简单效果好开销小，可以处理超过**一分钟**的视频。
