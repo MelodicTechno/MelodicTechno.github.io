@@ -1,4 +1,5 @@
 ---
+cover: "../images/har1/cover2.jpg"
 title: 动作识别综述笔记
 date: 2024-08-26 21:26:51
 tags: ["deep learning", "action recognition"]
@@ -8,7 +9,8 @@ excerpt: "对动作识别的一篇综述的整理"
 ---
 
 > 论文：Going deeper into action recognition: A survey
-> 
+> 封面：神秘墨测兮 
+
 ## 方法
 
 ## 描述动作的方法

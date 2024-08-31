@@ -1,4 +1,5 @@
 ---
+cover: "../images/HAR2/cover2.png"
 title: Modality for HAR
 date: 2024-08-26 21:34:23
 tags: ["deep learning", "action recognition"]
@@ -8,6 +9,7 @@ excerpt: "对动作识别的一篇综述的奇怪整理"
 ---
 
 > 论文：Human Action Recognition From Various Data Modalities: A Review
+> 封面：薛喵M
 
 ---
 *这篇综述侧重讲解了动作检测中不同的建模方式。*
