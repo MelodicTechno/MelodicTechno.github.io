@@ -192,7 +192,7 @@ navbar:
   links:
     Home:
       path: /
-      icon: fa-regular fa-house # can be empty
+      icon: fa-solid fa-house # can be empty
     Friends: #取名随意
       icon: fa-solid fa-link #图标
       path: /links/
@@ -202,6 +202,9 @@ navbar:
     关于:
       icon: fa-solid fa-user
       path: /about/
+    分类:
+      icon: fa-solid fa-folder
+      path: /categories/
     # Archives:
     #   path: /archives
     #   icon: fa-regular fa-archive # can be empty
