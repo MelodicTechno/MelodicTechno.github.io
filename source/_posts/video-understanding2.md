@@ -38,8 +38,8 @@ excerpt: "整理李沐账号的视频理解串讲"
 模型的结构：
 ![model](images/video2/model1.jpg)
 
-总共有11层，卷积核均为 $3*3*3$ 。这个网络是3D的VGG。
-输入大小: $16 \times 112 \time 112$，视频帧，大小不重要
+总共有11层，卷积核均为$3 \times 3 \times3$。这个网络是3D的VGG。
+输入大小: $16 \times 112 \times 112$，视频帧，大小不重要
 Conv2a: $16 \times 56 \times 56$
 Conv3a: $8 \times 28 \times 28$
 Conv4a: $4 \times 14 \times 14$
