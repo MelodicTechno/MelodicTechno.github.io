@@ -27,8 +27,6 @@ excerpt: "对动作识别的一篇综述的整理"
 
 # 用于动作检测的深度学习网络架构
 
----
-
 ## 四种架构
 
 1. Spatiotemporal networks (时空网络)
