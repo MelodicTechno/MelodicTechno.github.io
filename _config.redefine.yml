@@ -181,8 +181,8 @@ navbar:
   auto_hide: false
   # Navbar background color
   color:
-    left: "#f78736" #left side
-    right: "#367df7"  #right side
+    left: "#a0B9C6" #left side
+    right: "#c4d3dc"  #right side
     transparency: 35 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
@@ -199,6 +199,9 @@ navbar:
     相册: #取名随意
       icon: fa-solid fa-image #图标
       path: /masonry/
+    关于:
+      icon: fa-solid fa-user
+      path: /about/
     # Archives:
     #   path: /archives
     #   icon: fa-regular fa-archive # can be empty
