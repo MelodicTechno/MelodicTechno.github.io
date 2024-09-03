@@ -3,7 +3,7 @@ cover: "../images/video1/timeline1.jpg"
 title: 视频理解
 date: 2024-08-28 22:19:24
 tags: [deep learning, action recognition]
-categories: [课程笔记, 论文笔记]
+categories: [论文笔记]
 mathjax: true
 excerpt: "整理李沐账号的视频理解串讲"
 ---
