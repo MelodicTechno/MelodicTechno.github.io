@@ -15,8 +15,8 @@ excerpt: "对GRU的简单记录"
 This is the rnn encoder & decoder.
 ![cell1](images/gru/rnn_de.png)
 
-the**hidden**unit
-![cell1](images/gru/hiden.png)
+the **hidden** unit
+![cell1](images/gru/hidden_unit.png)
 
 z: update gate, selects whether the hidden state would be updated by $\hat h$; r: reset gate, decides whether the previous hidden state would be ignored
 
