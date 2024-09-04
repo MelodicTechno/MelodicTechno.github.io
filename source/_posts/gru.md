@@ -43,7 +43,7 @@ The hidden unit managed to drop information that is irrelevant
 - test set newstest2012 and 2013 for data selection and weight tuning with MERT, andnewstest2014 as our test set.
 - The baseline phrase-based SMT system was built using Moses with default settings.
 - All the weight parameters in the RNN Encoder– Decoder were initialized by sampling from an isotropic zero-mean (white) Gaussian distribution with its standard deviation fixed to 0.01, except for the recurrent weight parameters.
-- We used Adadelta and stochastic gradient descent to train the RNN Encoder–Decoder with hyperparameters $\sigma = 10^{−6}$ and $\rou = 0.95$.
+- We used Adadelta and stochastic gradient descent to train the RNN Encoder–Decoder with hyperparameters $\sigma = 10^{−6}$ and $\ro = 0.95$.
 - All the weight parameters were initialized uniformly between −0.01 and 0.01, and the model was trained until the validation perplexity did not improve for 10 epochs.
 
 ## result
