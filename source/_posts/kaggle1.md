@@ -1,5 +1,5 @@
 ---
-cover: "../images/gru/cover.jpg"
+cover: "../images/kaggle1/cover.jpg"
 title: Kaggle日寄
 date: 2024-09-04 21:54:21
 tags: [deep learning, kaggle]
