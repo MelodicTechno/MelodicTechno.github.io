@@ -6,3 +6,9 @@ tags: [编曲]
 categories: [兴趣]
 excerpt: "经常使用的一部分乐理"
 ---
+
+## 调式(Scale)
+
+**自然大调(Natural Major Scale)**：全-全-半-全-全-全-半
+
+**自然小调(Natural Minor Scale)**：全-半-全-全-半-全-全
