@@ -105,10 +105,10 @@ Adam optimizer with $\beta_1 = 0.9$, $\beta_2 = 0.98$ and $\sigma = 10^{−9}$
 The learning rate changes over time:
 
 $$
-lrate = d_{model}^{-0.5} \dot min(step \_ num^{-0.5}, step \_ num \dot warmup \_ steps^{-1.5})
+lrate = d_{model}^{-0.5} \cdot min(stepNum^{-0.5}, stepNum \cdot warmupSteps^{-1.5})
 $$
 
-$warmup \_ steps = 4000$
+$warmupSteps = 4000$
 
 ## Regularization
 
