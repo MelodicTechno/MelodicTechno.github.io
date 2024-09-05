@@ -1,8 +1,8 @@
-- links_category: n
-  has_thumbnail: false
+- links_category: Friends
+  has_thumbnail: true
   list:
-    - name: n
-      link: n
-      description: n
-      avatar: ''
-      thumbnail: ''
+    - name: fyshXplore
+      link: https://fyshxfish.github.io/
+      description: 🐟
+      avatar: 'https://fyshxfish.github.io/img/fyshx_avatar_hu134059368025567045.jpg'
+      thumbnail: 'https://fyshxfish.github.io/p/vscode-%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/cover_hu9797547593965317074.png'
