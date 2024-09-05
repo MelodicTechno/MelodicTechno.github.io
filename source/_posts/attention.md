@@ -70,3 +70,50 @@ identical fc applied to each position, with ReLU in between:
 $$
 FFN(x) = max(０，xW_1+b_1)W_2 + b_2
 $$
+
+### Embedding and Softmax
+
+Learned embeddings were used to convert the inputs to $d_{model}$ dimensional outputs.
+
+### Positional Encoding
+
+No recurrence and convolution is used. Positional encodings manage to make use of the order of the the sequence. The functions are:
+
+$$
+PE_{(pos, 2i)} = sin(pos / 10000^{2i / d_{model}})
+$$
+
+$$
+PE_{(pos, 2i+1)} = cos(pos / 10000^{2i / d_{model}})
+$$
+
+## Training
+
+- Data: WMT 2014 English-German dataset, WMT 2014 English-French dataset
+- Sentences were encoded using byte-pair encoding
+- Sentence pairs were batched together by approximate sequence length. Each training batch contained a set of sentence pairs containing approximately 25000 source tokens and 25000 target tokens.
+
+## Hardware and Schedule
+
+- Hardware: 8 NVIDIA P100 GPUs
+- Time: 12 hours
+
+## Optimizer
+
+Adam optimizer with $\beta_1 = 0.9$, $\beta_2 = 0.98$ and $\sigma = 10^{−9}$
+
+The learning rate changes over time:
+
+$$
+lrate = d_{model}^{-0.5} \dot min(step \_ num^{-0.5}, step \_ num \dot warmup \_ steps^{-1.5})
+$$
+
+$warmup \_ steps = 4000$
+
+## Regularization
+
+Three types of regularization:
+1. Residual Dropout
+2. Label Smoothing
+
+~~Where is the third one?~~
