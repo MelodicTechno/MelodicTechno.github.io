@@ -12,3 +12,4 @@ mathjax: true
 > cover: Silence Girl pixiv id: 67852422 link: https://www.pixiv.net/en/artworks/67852422
 > I chose it because I was sad when writing this page
 
+## Adversarial nets
